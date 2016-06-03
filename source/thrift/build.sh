@@ -42,6 +42,8 @@ if needs_build_package ; then
     OPENSSL_ARGS=
   fi
 
+  PATH=$BUILD_DIR/bison-$BISON_VERSION/bin:$PATH
+
   if [ -d "${PIC_LIB_PATH:-}" ]; then
     PIC_LIB_OPTIONS="--with-zlib=${PIC_LIB_PATH} "
   fi

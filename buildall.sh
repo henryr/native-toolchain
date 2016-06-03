@@ -36,6 +36,11 @@ source ./init.sh
 #  and version you want to add works as expected.
 ################################################################################
 ################################################################################
+# Bison
+################################################################################
+BISON_VERSION=3.0.4 $SOURCE_DIR/source/bison/build.sh
+
+################################################################################
 # Boost
 ################################################################################
 if (( BUILD_HISTORICAL )) ; then
@@ -120,11 +125,13 @@ ZLIB_VERSION=1.2.8 $SOURCE_DIR/source/zlib/build.sh
 # Thrift
 #  * depends on boost
 #  * depends on libevent
+#  * depends on bison
 ################################################################################
 export LIBEVENT_VERSION=1.4.15
 export BOOST_VERSION=1.57.0-p1
 export ZLIB_VERSION=1.2.8
 export OPENSSL_VERSION=1.0.1p
+export BISON_VERSION=3.0.4
 
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
   if (( BUILD_HISTORICAL )); then
@@ -136,6 +143,7 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
     THRIFT_VERSION=0.9.0-p7 $SOURCE_DIR/source/thrift/build.sh
   fi
   THRIFT_VERSION=0.9.0-p8 $SOURCE_DIR/source/thrift/build.sh
+  THRIFT_VERSION=0.9.3 $SOURCE_DIR/source/thrift/build.sh
 else
   THRIFT_VERSION=0.9.2-p2 $SOURCE_DIR/source/thrift/build.sh
 fi
@@ -144,6 +152,7 @@ export -n LIBEVENT_VERSION
 export -n BOOST_VERSION
 export -n ZLIB_VERSION
 export -n OPENSSL_VERSION
+export -n BISON_VERSION
 
 ################################################################################
 # gflags
