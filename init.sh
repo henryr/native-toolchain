@@ -237,10 +237,6 @@ fi
 
 if [[ ${SYSTEM_AUTOTOOLS} -eq 0 ]]; then
   ${SOURCE_DIR}/source/autoconf/build.sh
-  PATH=${BUILD_DIR}/autoconf-${AUTOCONF_VERSION}/bin/:$PATH
   ${SOURCE_DIR}/source/automake/build.sh
-  PATH=${BUILD_DIR}/automake-${AUTOMAKE_VERSION}/bin/:$PATH
   ${SOURCE_DIR}/source/libtool/build.sh
-  PATH=${BUILD_DIR}/libtool-${LIBTOOL_VERSION}/bin/:$PATH
-  export ACLOCAL_PATH=${BUILD_DIR}/libtool-${LIBTOOL_VERSION}/share/aclocal:${ACLOCAL_PATH:-}
 fi
